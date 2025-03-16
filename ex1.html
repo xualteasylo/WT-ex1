@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Map - Computer System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            display: inline-block;
+            background: #f9f9f9;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Image Map - Computer System</h1>
+    <img src="computer-system.jpg" usemap="#computer-map" alt="Computer System" id="responsive-img">
+    
+    <map name="computer-map">
+        <area shape="rect" coords="449,197,338,289" href="#" alt="CPU Socket" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('CPU Socket', 'Holds the processor and connects it to the motherboard.')">
+        <area shape="rect" coords="177,355,453,386" href="#" alt="RAM Slots" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('RAM Slots', 'Holds the RAM modules for temporary memory storage.')">
+        <area shape="rect" coords="55,132,145,283" href="#" alt="PCI Slots" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('PCI Slots', 'Used for adding expansion cards such as graphics and network cards.')">
+        <area shape="rect" coords="229,241,299,313" href="#" alt="Chipset" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('Chipset', 'Controls communication between CPU, RAM, and other peripherals.')">
+        <area shape="rect" coords="177,411,287,449" href="#" alt="Storage Ports" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('Storage Ports', 'Used for connecting storage devices like HDD and SSD.')">
+        <area shape="rect" coords="271,44,387,93" href="#" alt="Parallel Port (LPT Port)" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('Parallel Port', 'Used for connecting older printers and scanners.')">
+        <area shape="rect" coords="72,353,117,399" href="#" alt="Southbridge Chipset" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('Southbridge Chipset', 'Manages I/O functions like USB, audio, and storage.')">
+        <area shape="circle" coords="57,335,20" href="#" alt="CMOS Battery" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('CMOS Battery', 'Powers the BIOS firmware to retain system settings.')">
+        <area shape="rect" coords="207,145,303,212" href="#" alt="Northbridge Chipset Heatsink" data-bs-toggle="modal" data-bs-target="#infoModal" onclick="showInfo('Northbridge Chipset', 'Handles communication between CPU, RAM, and graphics card.')">
+    </map>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Component Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-content">
+                    Click on a component to view details.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showInfo(component, details) {
+            document.getElementById('modal-content').innerHTML = `<strong>${component}</strong><br>${details}`;
+        }
+    </script>
+</body>
+</html>
